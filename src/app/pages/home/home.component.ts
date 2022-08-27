@@ -11,6 +11,7 @@ import { Observable, of } from 'rxjs';
 export class HomeComponent implements OnInit {
   characters: Observable<Character[]> = of([]);
   notFound: boolean = false;
+  loading: boolean = false;
 
   constructor(private characterService: CharacterService) { }
 
@@ -19,21 +20,27 @@ export class HomeComponent implements OnInit {
   }
 
   getCharacters(): void {
+    this.loading = true;
     this.characterService.getCharacters().subscribe(characters => {
       this.notFound = false;
       this.characters = of(characters.results)
+      this.loading = false;
     }, error => {
+      this.loading = false;
       this.notFound = true;
       this.characters = of([])
     });
   }
 
   searchChangeLisenter(query: string): void {
+    this.loading = true;
     this.characterService.search(query).subscribe(characters => {
       this.notFound = false;
       this.characters = of(characters.results)
+      this.loading = false;
     },
       error => {
+        this.loading = false;
         this.notFound = true;
         this.characters = of([])
       });

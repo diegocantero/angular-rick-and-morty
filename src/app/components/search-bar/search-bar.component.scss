@@ -52,6 +52,12 @@
   }
 }
 
+@media only screen and  (min-width: 768px) and (max-width: 992px) {
+  .search-container{
+    width: 60vw;
+  }
+}
+
 @media only screen and (min-width: 1000px)and (max-width: 1200px)
 {
   .search-container{

@@ -1,5 +1,5 @@
 <div class="hero" *ngIf="character !== null"  [ngStyle]="{'background-image': (character.gender === 'Male') ? 'linear-gradient(0deg, #00FFF5, #00B3AC)' : 'linear-gradient(0deg, #38B300, #59FF0D)'}" >
-  <img class="hero-profile-img" src="{{ character.image }}" alt="">
+  <img loading="lazy" class="hero-profile-img" src="{{ character.image }}" alt="">
   <div class="hero-description-bk"   [ngStyle]="{'background-image': (character.gender === 'Male') ? 'linear-gradient(0deg, #FF5900, #FF6A19)' : 'linear-gradient(0deg, #000000, #FF0EF3)'}"></div>
   <div class="character-description">
     <p>{{ character.name }}</p>

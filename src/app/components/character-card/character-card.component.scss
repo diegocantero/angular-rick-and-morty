@@ -67,8 +67,30 @@
   }
 }
 
-@media only screen and (min-width: 768px) {}
+@media only screen and  (min-width: 768px) and (max-width: 992px) {
+  .hero {
+    width: 30vw;
+    height: 35vw;
+  }
+}
 
-@media only screen and (min-width: 992px) {}
+@media only screen and  (min-width: 992px) and (max-width: 1200px) {
+  .hero {
+    width: 27vw;
+  }
+}
 
-@media only screen and (min-width: 1200px) {}
+
+@media only screen and  (min-width: 1201px) {
+  .hero {
+    width: 20vw;
+    height: 25vw;
+  }
+}
+
+
+@media only screen and  (min-width: 1400px) {
+  .hero {
+    width: 21vw;
+  }
+}

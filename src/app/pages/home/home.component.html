@@ -3,15 +3,25 @@
     <app-top-bar></app-top-bar>
     <app-search-bar (searchChange)="searchChangeLisenter($event)"></app-search-bar>
   </div>
+  <div  *ngIf="loading" class="loader">
+    <div class="spinner">
+      <div class="set1">
+        <div class="ball"></div>
+        <div class="ball"></div>
+      </div>
+      <div class="set2">
+        <div class="ball"></div>
+        <div class="ball"></div>
+      </div>
+    </div>
+  </div>
   <div class="site-content">
-
-    <div class="characters">
-      <div *ngIf="notFound" class="not-found">
-        <h1 class="site-content__headline" >
+    <div  *ngIf="!loading" class="characters">
+        <div *ngIf="notFound" class="not-found">
+        <h1 class="site-content__headline">
           Not results found
         </h1>
       </div>
-
       <div *ngFor="let character of characters | async">
         <app-character-card [character]="character"></app-character-card>
       </div>
