@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "blog-app": {
+    "rick-and-morty-app-morty-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/blog-app",
+            "outputPath": "dist/rick-and-morty-app-morty-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "blog-app:build:production"
+              "browserTarget": "rick-and-morty-app:build:production"
             },
             "development": {
-              "browserTarget": "blog-app:build:development"
+              "browserTarget": "rick-and-morty-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "blog-app:build"
+            "browserTarget": "rick-and-morty-app:build"
           }
         },
         "test": {
