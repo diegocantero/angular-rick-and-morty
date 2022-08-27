@@ -1,1 +1,108 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+// VARS
+$background--color: #1e2023;
+$icon--color: #1e2023;
+$font--color: #ffffff;
+$font--color--active: #000000;
+$font--primary: 'Fira Sans', sans-serif;
+$transition--length: .8;
+
+
+
+.full-height {
+  min-height: 100vh;
+  height: 100%;
+}
+
+.container {
+  width: 100vw;
+}
+
+.bg-primary {
+  background-color: #000000;
+}
+
+.bg-secondary {
+  background-color: #87819C;
+}
+
+.bg-black {
+  background-color: #000000;
+}
+
+
+body {
+  font-family: $font--primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.site-content {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+  &__headline {
+    text-align: center;
+    font-weight: 200;
+    color: $font--color;
+    font-size: calc(2vw + 10px);
+  }
+}
+
+.not-found {
+  margin-top: 10vh;
+  width: 100vw;
+}
+
+body.nav-active {
+  $menu--items--count: 4;
+
+  .menu-icon {
+    &__line {
+      color: #5df218;
+      transform: translateX(0px) rotate(-45deg);
+    }
+
+    &__line-left {
+      transform: translateX(1px) rotate(45deg);
+    }
+
+    &__line-right {
+      transform: translateX(-2px) rotate(45deg);
+    }
+  }
+
+  .nav {
+    visibility: visible;
+
+    &:before,
+    &:after {
+      transform: translateX(0%) translateY(0%);
+    }
+
+    &:after {
+      transition-delay: .1s;
+    }
+
+    &:before {
+      transition-delay: 0s;
+    }
+
+    &__list-item {
+      opacity: 1;
+      transform: translateX(0%);
+      transition: opacity .3s ease, transform .3s ease, color .3s ease;
+
+      @for $i from 0 through $menu--items--count {
+        &:nth-child(#{$i}) {
+          transition-delay: $transition--length * $i / 8 + .5 + s;
+        }
+      }
+    }
+  }
+}

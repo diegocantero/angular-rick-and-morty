@@ -1,0 +1,61 @@
+.search-container {
+  position: fixed;
+  z-index: 1;
+  width: 80vw;
+  top: 1.5vh;
+  background: #1e2023;
+  color: white;
+  height: 30px;
+  border-radius: 30px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  left: 0;
+  right: 0;
+  margin: auto auto;
+
+}
+
+.search-input {
+  left: 0;
+  right: 0;
+  color: white;
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-weight: 500;
+  font-size: 16px;
+  transition: 0.8s;
+  margin: auto auto;
+
+}
+
+.search-container .search-btn .fa-icon {
+  color: #5df218;
+}
+
+
+@media only screen and (max-width: 600px)
+{
+  .search-container{
+    width: 40vw;
+  }
+}
+
+@media only screen and (min-width: 600px)and (max-width: 768px)
+{
+  .search-container{
+    width: 50vw;
+  }
+}
+
+@media only screen and (min-width: 1000px)and (max-width: 1200px)
+{
+  .search-container{
+    width: 60vw;
+  }
+}
+

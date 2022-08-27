@@ -1,0 +1,74 @@
+/* BEGIN CARD DESIGN */
+.hero {
+  display: inline-block;
+  position: relative;
+  width: 20vw;
+  min-width: 20vw;
+  height: 40vh;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+  margin: 30px;
+}
+
+.hero-profile-img {
+  height: 73%;
+  width: 73%;
+}
+
+.hero-description-bk {
+  border-radius: 30px;
+  position: absolute;
+  top: 65%;
+  left: -5px;
+  height: 65%;
+  width: 108%;
+  transform: skew(19deg, -9deg);
+}
+
+.character-description {
+  position: absolute;
+  color: #fff;
+  font-weight: 900;
+  left: 1rem;
+  bottom: 4rem;
+  font-size: 1.5rem;
+
+}
+
+.character-info {
+  position: absolute;
+  color: #fff;
+  left: 1rem;
+  bottom: 2rem;
+  font-size: 1.5rem;
+  display: flex;
+}
+
+.character-status {
+  height: 10px;
+  width: 10px;
+  border-radius: 20px;
+  margin: auto 1rem;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.7);
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .hero {
+    width: 80vw;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .hero {
+    width: 60vw;
+  }
+}
+
+@media only screen and (min-width: 768px) {}
+
+@media only screen and (min-width: 992px) {}
+
+@media only screen and (min-width: 1200px) {}
