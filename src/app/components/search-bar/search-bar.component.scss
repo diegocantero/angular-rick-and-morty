@@ -1,10 +1,15 @@
+
+
+@import "./../../../assets/style/variables.scss";
+
+/* Component styles */
 .search-container {
   position: fixed;
   z-index: 1;
   width: 80vw;
   top: 1.5vh;
-  background: #1e2023;
-  color: white;
+  background: $secondary-color;
+  color: $primary-font-color;
   height: 30px;
   border-radius: 30px;
   padding: 10px 20px;
@@ -21,7 +26,7 @@
 .search-input {
   left: 0;
   right: 0;
-  color: white;
+  color: $primary-font-color;
   background: transparent;
   border: none;
   outline: none;
@@ -30,14 +35,13 @@
   font-size: 16px;
   transition: 0.8s;
   margin: auto auto;
-
 }
 
-.search-container .search-btn .fa-icon {
-  color: #5df218;
+.fa-icon {
+  color: $custom-green-color;
 }
 
-
+/* Responsive */
 @media only screen and (max-width: 600px)
 {
   .search-container{

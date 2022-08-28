@@ -1,11 +1,12 @@
-<div class="hero" *ngIf="character !== null"  [ngStyle]="{'background-image': (character.gender === 'Male') ? 'linear-gradient(0deg, #00FFF5, #00B3AC)' : 'linear-gradient(0deg, #38B300, #59FF0D)'}" >
-  <img loading="lazy" class="hero-profile-img" src="{{ character.image }}" alt="">
-  <div class="hero-description-bk"   [ngStyle]="{'background-image': (character.gender === 'Male') ? 'linear-gradient(0deg, #FF5900, #FF6A19)' : 'linear-gradient(0deg, #000000, #FF0EF3)'}"></div>
+<div class="character" *ngIf="character !== null" [ngClass]="{'blue-bg':character.gender === 'Male', 'green-bg':character.gender === 'Female' || character.gender === 'unknown'}">
+  <img loading="lazy" class="character-profile-img" src="{{ character.image }}" alt="">
+  <div class="character-description-bg" [ngClass]="{'orange-bg':character.gender === 'Male', 'fuchsia-bg':character.gender === 'Female', 'gray-bg':character.gender === 'unknown'}">
+  </div>
   <div class="character-description">
     <p>{{ character.name }}</p>
   </div>
   <div class="character-info">
-    <div class="character-status" [ngStyle]="{'background-color': (character.status === 'Alive') ? 'rgb(107, 245, 72)' : '#000000'}"></div>
+    <div class="character-status" [ngClass]="{'live':character.status === 'Alive','unknown':character.status !== 'Alive'}"></div>
     <div>
       <p>{{ character.status }} - {{ character.species }}</p>
     </div>

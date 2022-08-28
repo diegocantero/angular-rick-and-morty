@@ -1,37 +1,34 @@
+@import "./assets/style/variables.scss";
+
 * {
   margin: 0;
   padding: 0;
 }
 
-// VARS
-$background--color: #1e2023;
-$icon--color: #1e2023;
-$font--color: #ffffff;
-$font--color--active: #000000;
-$font--primary: 'Fira Sans', sans-serif;
-$transition--length: .8;
+body {
+  font-family: $primary-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
+/* Utils */
 
+.container {
+  width: 100vw;
+}
 
 .full-height {
   min-height: 100vh;
   height: 100%;
 }
 
-.container {
-  width: 100vw;
-}
+/* Backgrounds */
 
 .bg-primary {
-  background-color: #000000;
+  background-color: $primary-color;
 }
 
-
-body {
-  font-family: $font--primary;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* Root styles */
 
 .site-content {
   display: grid;
@@ -41,14 +38,9 @@ body {
   &__headline {
     text-align: center;
     font-weight: 200;
-    color: $font--color;
+    color: $primary-font-color;
     font-size: calc(2vw + 10px);
   }
-}
-
-.not-found {
-  margin-top: 10vh;
-  width: 100vw;
 }
 
 body.nav-active {
@@ -56,7 +48,7 @@ body.nav-active {
 
   .menu-icon {
     &__line {
-      color: #5df218;
+      color: $custom-green-color;
       transform: translateX(0px) rotate(-45deg);
     }
 
@@ -92,7 +84,7 @@ body.nav-active {
 
       @for $i from 0 through $menu--items--count {
         &:nth-child(#{$i}) {
-          transition-delay: $transition--length * $i / 8 + .5 + s;
+          transition-delay: $transition-length * $i / 8 + .5 + s;
         }
       }
     }

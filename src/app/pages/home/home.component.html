@@ -3,7 +3,7 @@
     <app-top-bar></app-top-bar>
     <app-search-bar (searchChange)="searchChangeLisenter($event)"></app-search-bar>
   </div>
-  <div  *ngIf="loading" class="loader">
+  <div *ngIf="loading" class="loader">
     <div class="spinner">
       <div class="set1">
         <div class="ball"></div>
@@ -16,8 +16,8 @@
     </div>
   </div>
   <div class="site-content">
-    <div  *ngIf="!loading" class="characters">
-        <div *ngIf="notFound" class="not-found">
+    <div *ngIf="!loading" class="characters">
+      <div *ngIf="notFound" class="not-found">
         <h1 class="site-content__headline">
           Not results found
         </h1>
