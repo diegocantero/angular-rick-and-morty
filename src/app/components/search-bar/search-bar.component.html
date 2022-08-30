@@ -1,20 +1,23 @@
 <div class="container">
-  <div class="search-container">
-    <input type="text" name="search" id="search"  placeholder="Search..." class="search-input"
-      (keyup)="searchQuery($event)" autocomplete="off">
-    <div class="history-search">
+  <div class="search-container"  [ngClass]="{'border-input':showHistory}">
+    <input type="text" name="search" id="search" placeholder="Search..." class="search-input"
+      (keyup)="searchQuery($event)" autocomplete="off" (click)="show()" #search >
+    <div class="history-search"  [ngClass]="{'show':showHistory}">
       <div class="item-history" *ngFor="let item of history | async">
         <div class="history-icon">
           <fa-icon [icon]="faClock" class="fa-icon"></fa-icon>
         </div>
         <div class="query">
+          <a (click)="searchHistory(item.query)" class="search-btn">
           {{ item.query }}
+        </a>
         </div>
         <div class="delete-icon">
-          <fa-icon [icon]="faX" class="fa-icon"></fa-icon>
+          <a (click)="deleteRegistry(item.id)" class="search-btn">
+            <fa-icon [icon]="faX" class="fa-icon"></fa-icon>
+          </a>
         </div>
       </div>
-
       <div class="item-history" *ngIf="(history | async)?.length === 0">
         <div class="no-recent-searches">
           No recents searches
@@ -24,10 +27,8 @@
     <a (click)="clearSearch()" class="search-btn" *ngIf="searching">
       <fa-icon [icon]="faX" class="fa-icon"></fa-icon>
     </a>
-    <a onclick="alert('Click')" class="search-btn" *ngIf="!searching">
+    <a class="search-btn" *ngIf="!searching">
       <fa-icon [icon]="faSearch" class="fa-icon"></fa-icon>
     </a>
   </div>
-
-
 </div>

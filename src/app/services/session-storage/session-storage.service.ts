@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
+import { ISessionStorage } from 'src/app/models/history-search';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SessionStorageService {
+export class SessionStorageService<Type extends ISessionStorage> {
   baseName: string = 'session-storage-';
   constructor() {}
 
-  private search(create: boolean = false, data: string = ''): string[] {
+  private search(create: boolean = false, data: Type | null = null): string[] {
     let response: string[] = [];
     let count: number = 0;
     let flag: boolean = true;
@@ -18,11 +19,16 @@ export class SessionStorageService {
         response.push(item);
       }
 
-      if (!item || item == null) {
-        if (create && data.length > 0) {
-          sessionStorage.setItem(key, data);
+      if (!item || item === null) {
+        if (create && data !== null) {
+          data.id = key;
+          sessionStorage.setItem(key, JSON.stringify(data));
+          flag = false;
         }
-        flag = false;
+        let keys = Object.keys(sessionStorage);
+        if (keys.length === 0 || keys.length === response.length) {
+          flag = false;
+        }
       }
 
       count++;
@@ -36,14 +42,14 @@ export class SessionStorageService {
     return response;
   }
 
-  create(data: string) {
-    if (data?.trim() === '' || data === null || data === undefined) {
+  create(data: Type) {
+    if (data === null || data === undefined) {
       return;
     }
     this.search(true, data);
   }
 
-  delete(key: string) {}
-
-
+  delete(key: string) {
+    sessionStorage.removeItem(key);
+  }
 }

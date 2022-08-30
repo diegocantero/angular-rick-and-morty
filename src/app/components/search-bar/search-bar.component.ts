@@ -1,4 +1,12 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { faSearch, faClock, faX } from '@fortawesome/free-solid-svg-icons';
 import {
   Subject,
@@ -23,11 +31,31 @@ export class SearchBarComponent implements OnInit {
   history: Observable<HistorySearch[]> = of([]);
 
   searching = false;
+  showHistory = false;
   faSearch = faSearch;
   faClock = faClock;
   faX = faX;
+  @ViewChild('search')
+  searchInput!: ElementRef<HTMLInputElement>;
 
-  constructor(private sessionService: SessionStorageService) {}
+  constructor(
+    private sessionService: SessionStorageService<HistorySearch>,
+    private ref: ElementRef
+  ) {}
+
+  @HostListener('document:click', ['$event'])
+  onGlobalClick(event: Event): void {
+    let items = event.composedPath() as HTMLElement[];
+    let itemHistory = items.find(
+      (x) => x.className === 'item-history' || x.className === 'search-btn'
+    );
+    if (
+      !this.ref.nativeElement.contains(event.target) &&
+      itemHistory === undefined
+    ) {
+      this.showHistory = false;
+    }
+  }
 
   ngOnInit(): void {
     this.getHistorySearches();
@@ -42,11 +70,12 @@ export class SearchBarComponent implements OnInit {
 
   getHistorySearches() {
     let response = this.sessionService.getAll();
-    let history = response.map((x) => {
+    let history = response.map((x: string) => {
       console.log();
       return JSON.parse(x) as HistorySearch;
     });
-    history.sort((a, b) => {
+
+    history.sort((a: HistorySearch, b: HistorySearch) => {
       if (a.date > b.date) {
         return -1;
       }
@@ -56,9 +85,11 @@ export class SearchBarComponent implements OnInit {
   }
 
   searchQuery(event: KeyboardEvent) {
+    this.showHistory = false;
     let queryParam = event.target as HTMLInputElement;
     this.searching = true;
     if (queryParam.value === '') {
+      this.showHistory = true;
       this.searching = false;
     }
     this.word.next(queryParam.value);
@@ -69,15 +100,36 @@ export class SearchBarComponent implements OnInit {
       return;
     }
     let data: HistorySearch = {
+      id: '',
       query: query,
       date: this.getDate(),
     };
-    this.sessionService.create(JSON.stringify(data));
+    this.sessionService.create(data);
   }
 
   clearSearch() {
+    this.searchInput.nativeElement.value = '';
     this.word.next('');
     this.searching = false;
+    this.showHistory = false;
+    this.getHistorySearches();
+  }
+
+  searchHistory(key:string){
+    this.showHistory = false;
+    this.searching = true;
+    this.word.next(key);
+    this.searchInput.nativeElement.value = key;
+  }
+
+  show() {
+    this.showHistory = true;
+    this.getHistorySearches();
+  }
+
+  deleteRegistry(key: string) {
+    this.sessionService.delete(key);
+    this.getHistorySearches();
   }
 
   getDate(): string {
