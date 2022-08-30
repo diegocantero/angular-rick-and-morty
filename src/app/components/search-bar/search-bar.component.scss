@@ -1,12 +1,10 @@
-
-
 @import "./../../../assets/style/variables.scss";
 
 /* Component styles */
 .search-container {
   position: fixed;
   z-index: 1;
-  width: 80vw;
+  width: 78vw;
   top: 1.5vh;
   background: $secondary-color;
   color: $primary-font-color;
@@ -37,35 +35,107 @@
   margin: auto auto;
 }
 
+.history-search {
+  position: fixed;
+  z-index: 1;
+  width: 78vw;
+  top: calc(1.5vh + 40px + 5px);
+  background: $secondary-color;
+  color: $primary-font-color;
+  height: 0;
+  padding: 10px 20px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  left: 0;
+  right: 0;
+  margin: auto auto;
+  border-radius: 0 0 30px 30px;
+}
+
+.item-history {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  height: 1rem;
+  padding: 1rem 0;
+}
+
+.item-history .history-icon {
+  width: 10%;
+}
+
+.item-history .query {
+  width: 80%;
+}
+
+.item-history .delete-icon {
+  float: right;
+  width: 10%;
+}
+.item-history .delete-icon > fa-icon {
+  float: right;
+}
+
+.item-history .no-recent-searches {
+  width: 100%;
+  text-align: center;
+}
+
+.search-container:focus-within {
+  border-radius: 25px 25px 0 0;
+}
+
+#search:focus~.history-search {
+  display: block;
+  color: $primary-font-color;
+  height: auto;
+}
+
 .fa-icon {
   color: $custom-green-color;
 }
 
+
 /* Responsive */
-@media only screen and (max-width: 600px)
-{
-  .search-container{
+@media only screen and (max-width: 600px) {
+  .search-container {
+    width: 40vw;
+  }
+
+  .history-search {
     width: 40vw;
   }
 }
 
-@media only screen and (min-width: 600px)and (max-width: 768px)
-{
-  .search-container{
+@media only screen and (min-width: 600px)and (max-width: 768px) {
+  .search-container {
+    width: 50vw;
+  }
+
+  .history-search {
     width: 50vw;
   }
 }
 
-@media only screen and  (min-width: 768px) and (max-width: 992px) {
-  .search-container{
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .search-container {
+    width: 60vw;
+  }
+
+  .history-search {
     width: 60vw;
   }
 }
 
-@media only screen and (min-width: 1000px)and (max-width: 1200px)
-{
-  .search-container{
+@media only screen and (min-width: 1000px)and (max-width: 1200px) {
+  .search-container {
+    width: 60vw;
+  }
+
+  .history-search {
     width: 60vw;
   }
 }
-

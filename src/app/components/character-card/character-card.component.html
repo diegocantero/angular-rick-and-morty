@@ -1,14 +1,32 @@
-<div class="character" *ngIf="character !== null" [ngClass]="{'blue-bg':character.gender === 'Male', 'green-bg':character.gender === 'Female' || character.gender === 'unknown'}">
+<!-- <div class="character" *ngIf="character !== null" [ngClass]="{'blue-bg':character.gender === 'Male', 'green-bg':character.gender === 'Female' || character.gender === 'unknown'}">
   <img loading="lazy" class="character-profile-img" src="{{ character.image }}" alt="">
   <div class="character-description-bg" [ngClass]="{'orange-bg':character.gender === 'Male', 'fuchsia-bg':character.gender === 'Female', 'gray-bg':character.gender === 'unknown'}">
   </div>
-  <div class="character-description">
-    <p>{{ character.name }}</p>
-  </div>
-  <div class="character-info">
-    <div class="character-status" [ngClass]="{'live':character.status === 'Alive','unknown':character.status !== 'Alive'}"></div>
-    <div>
-      <p>{{ character.status }} - {{ character.species }}</p>
+  <div class="character-logo">
+    <div class="character-description">
+      <p>{{ character.name }} - {{ character.species }}</p>
     </div>
-  </div>
-</div>
+  <div class="character-info">
+      <div class="character-status" [ngClass]="{'live':character.status === 'Alive','unknown':character.status !== 'Alive'}"></div>
+      <div>
+        <p>{{ character.status }} - {{ character.species }}</p>
+      </div>
+    </div>
+
+ -->
+  <li *ngIf="character !== null">
+    <a href="" class="card" >
+      <img src="{{ character.image }}" class="card__image" alt="" />
+      <div class="card__overlay"    [ngClass]="{'orange-bg':character.gender === 'Male', 'fuchsia-bg':character.gender === 'Female', 'gray-bg':character.gender === 'unknown'}">
+        <div class="card__header" [ngClass]="{'orange-bg':character.gender === 'Male', 'fuchsia-bg':character.gender === 'Female', 'gray-bg':character.gender === 'unknown'}">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path [ngClass]="{'orange-bg':character.gender === 'Male', 'fuchsia-bg':character.gender === 'Female', 'gray-bg':character.gender === 'unknown'}"/></svg>
+          <img class="card__thumb" src="https://w0.peakpx.com/wallpaper/940/144/HD-wallpaper-rick-and-morty-logo-ultra-cartoons-others-logo-rickandmorty.jpg" alt="" />
+          <div class="card__header-text">
+            <h3 class="card__title">{{ character.name }} | {{ character.species }}</h3>
+            <span class="card__status">{{ character.location.name }}</span>
+          </div>
+        </div>
+        <p class="card__description">{{ character.gender }} | {{ character.type }}</p>
+      </div>
+    </a>
+  </li>

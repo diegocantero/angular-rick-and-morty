@@ -18,6 +18,7 @@
   width: 73%;
 }
 
+
 .character-description-bg {
   border-radius: 30px;
   position: absolute;
@@ -28,14 +29,26 @@
   transform: skew(19deg, -9deg);
 }
 
+.character-logo {
+  height: 4rem;
+  width: 94%;
+  border-radius: 20px;
+  background-color: $custom-green-color;
+  position: absolute;
+  bottom: 3%;
+  left: 3%;
+  overflow:hidden;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.7);
+}
 .character-description {
   position: absolute;
   color: $primary-font-color;
   font-weight: 900;
-  left: 1rem;
-  bottom: 4rem;
+  left:  5%;
+  bottom: 25%;
   font-size: 1.5rem;
-
+  border-radius: 24px;
+  width: 20rem;
 }
 
 .character-info {
@@ -55,24 +68,129 @@
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.7);
 }
 
+.card {
+  position: relative;
+  display: block;
+  height: 100%;
+  border-radius: calc($curve-constant * 1px);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.card__image {
+  width: 100%;
+  height: auto;
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  border-radius: calc($curve-constant * 1px);
+  background-color: $custom-green-color;
+  transform: translateY(100%);
+  transition: .2s ease-in-out;
+}
+
+.card:hover .card__overlay {
+  transform: translateY(0);
+}
+
+.card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius: calc($curve-constant * 1px) 0 0 0;
+  background-color: $custom-green-color;
+  transform: translateY(-100%);
+  transition: .2s ease-in-out;
+}
+
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  z-index: 1;
+}
+
+.card__arc path {
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}
+
+.card:hover .card__header {
+  transform: translateY(0);
+}
+
+.card__thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.card__title {
+  font-size: 1em;
+  margin: 0 0 .3em;
+  color: $primary-font-color;
+}
+
+.card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";
+  font-size: .8em;
+  color: #D7BDCA;
+}
+
+.card__status {
+  font-size: .8em;
+  color: $primary-font-color;
+}
+
+.card__description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: $primary-font-color;
+  font-family: "MockFlowFont";
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+
+/* Utils */
+
 .blue-bg{
+  fill:#00FFF5;
+
   background-image: linear-gradient(0deg, #00FFF5, #00B3AC);
 }
 
 .green-bg{
-  background-image: linear-gradient(0deg, #38B300, #5df218);
+  fill:$custom-green-color;
+  background-color: $custom-green-color;
 }
 
 .fuchsia-bg{
-  background-image: linear-gradient(0deg, #000000, #FF0EF3);
+  fill: #c501e2;
+  background-color: #c501e2;
 }
 
 .orange-bg{
-  background-image: linear-gradient(0deg, #FF5900, #FF6A19);
+  fill:#FF6A19;
+  background-color: #FF6A19;
 }
 
 .gray-bg{
-  background-image: linear-gradient(0deg,  $secondary-color,  $secondary-color);
+  fill:$custom-green-color;
+  background-image: linear-gradient(0deg,  $custom-green-color,  $custom-green-color);
 }
 
 .live{
@@ -80,44 +198,7 @@
 }
 
 .unknown{
+  fill:#000000;
   background-color:#000000;
 }
 
-/* Responsive */
-@media only screen and (max-width: 600px) {
-  .hero {
-    width: 80vw;
-  }
-}
-
-@media only screen and (min-width: 600px) and (max-width: 768px) {
-  .hero {
-    width: 60vw;
-  }
-}
-
-@media only screen and  (min-width: 768px) and (max-width: 992px) {
-  .hero {
-    width: 30vw;
-    height: 35vw;
-  }
-}
-
-@media only screen and  (min-width: 992px) and (max-width: 1200px) {
-  .hero {
-    width: 27vw;
-  }
-}
-
-@media only screen and  (min-width: 1201px) {
-  .hero {
-    width: 20vw;
-    height: 25vw;
-  }
-}
-
-@media only screen and  (min-width: 1400px) {
-  .hero {
-    width: 20vw;
-  }
-}
