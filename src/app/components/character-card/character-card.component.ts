@@ -1,6 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Character } from 'src/app/models/character';
 import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-character-card',
@@ -10,7 +11,7 @@ import { Observable, of } from 'rxjs';
 
 export class CharacterCardComponent implements OnInit {
   @Input() character: Character | null = null;
-
+  logo = environment.LOGO;
   constructor() {
   }
 
