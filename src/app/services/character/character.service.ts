@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import {Characters } from '../../models/character';
+import {Character, Characters } from '../../models/character';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
@@ -17,5 +17,9 @@ export class CharacterService {
 
   getCharacters(): Observable<Characters> {
     return this.http.get<Characters>(`${environment.API_URL}/character`);
+  }
+
+  getCharacterById(id:string): Observable<Character> {
+    return this.http.get<Character>(`${environment.API_URL}/character/${id}`);
   }
 }

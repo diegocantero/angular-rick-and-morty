@@ -1,0 +1,24 @@
+@import "./../../../assets/style/variables.scss";
+
+/* Page styles */
+
+
+.profile-container {
+  width: 90vw;
+}
+
+.panel {
+  min-height: 80vh;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.panel-content {
+  display: flex;
+  margin: 6rem 5vw;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+

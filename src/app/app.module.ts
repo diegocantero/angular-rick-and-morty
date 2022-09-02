@@ -10,7 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoaderComponent } from './components/loader/loader.component';
-
+import { ProfileCardComponent } from './components/profile-card/profile-card.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,13 +20,16 @@ import { LoaderComponent } from './components/loader/loader.component';
     CharacterCardComponent,
     HomeComponent,
     SearchBarComponent,
-    LoaderComponent
+    LoaderComponent,
+    ProfileCardComponent,
+    ProfileComponent,
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

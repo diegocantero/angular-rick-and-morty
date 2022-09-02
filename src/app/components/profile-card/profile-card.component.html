@@ -1,0 +1,30 @@
+<div class="container-card">
+  <div class="card">
+    <img src="{{ character?.image }}" alt="profile_img">
+    <h2>{{ character?.name }}</h2>
+    <h5>{{ character?.origin?.name }}</h5>
+    <div class="details">
+      <div class="column">
+        <fa-icon [icon]="faGender" class="fa-icon" [ngClass]="{'blue':character?.gender === 'Male', 'fuchsia':character?.gender === 'Female', 'orange':character?.gender === 'unknown'}"></fa-icon>
+        <span>{{ character?.type }}</span>
+      </div>
+      <div class="column">
+        <h2>{{ character?.species }}</h2>
+        <span>{{ character != null ? parseToDate(character.created) : "" }}</span>
+      </div>
+    </div>
+    <div class="details">
+      <div class="column">
+        <p class="description">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt beatae debitis iste asperiores odio odit
+          ab, soluta reiciendis atque adipisci doloribus quas cum, at cumque fuga? Esse fugiat assumenda iure!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+
+        </p>
+      </div>
+    </div>
+    <div class="buttons">
+      <button>See more</button>
+    </div>
+  </div>
+</div>

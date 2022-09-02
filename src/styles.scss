@@ -1,3 +1,4 @@
+
 @import "./assets/style/variables.scss";
 
 * {
@@ -27,6 +28,36 @@ body {
 
 .bg-primary {
   background-color: $primary-color;
+}
+.bg-secondary {
+  background-color: $secondary-color;
+}
+
+.bg-orange {
+  background-color: $custom-orange-color;
+  color: $primary-color;
+
+}
+.bg-blue{
+  background-color: $custom-blue-color ;
+}
+.bg-green {
+  background-color: $custom-green-color;
+
+}
+.bg-fuchsia {
+  background-color: $custom-fuchsia-color;
+  color: $primary-font-color;
+}
+
+
+/* Loader */
+
+.loader {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Root styles */

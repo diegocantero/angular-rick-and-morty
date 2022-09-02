@@ -1,0 +1,136 @@
+@import "./../../../assets/style/variables.scss";
+
+.container-card {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.icon svg {
+  fill: $custom-orange-color;
+}
+
+.card {
+  width: 35vw;
+  background: linear-gradient(to bottom,
+      $custom-orange-color 110px,
+      $secondary-color 110px);
+  border-radius:  calc($curve-constant * 1px);
+  box-shadow: -4vmin 4vmin 5vmin #3b24058f;
+  padding: 50px 0;
+}
+
+.card * {
+
+  text-align: center;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+img {
+  display: block;
+  width: 18vw;
+  height: 18vw;
+  position: relative;
+  border-radius: 50%;
+  margin: 0 auto;
+  box-shadow: 0 0 0 8px $custom-green-color;
+}
+
+.card h2 {
+  color: $custom-green-color;
+  font-size: 2rem;
+  margin: 15px 0 5px 0;
+}
+
+.card h5 {
+  color: #FAFAFA;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.details {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.description{
+  color: #a1a1a1;
+  width: 80%;
+  margin: auto;
+  text-align: justify !important;
+}
+
+.details h2 {
+  font-weight: 400;
+}
+
+.details span {
+  color: $custom-orange-color;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.buttons button {
+  width: 30%;
+  padding: 8px 0;
+  border-radius: 25px;
+  border: 3px solid $custom-green-color;
+}
+
+.buttons button:last-child {
+  background-color: transparent;
+  color: $primary-font-color;
+  font-size: 1rem;
+}
+
+.fa-icon{
+  font-size: 3rem;
+}
+
+.orange{
+  color: $custom-orange-color;
+}
+
+.fuchsia{
+  color: $custom-fuchsia-color;
+}
+.blue{
+  color: $custom-blue-color;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 80vw;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .card {
+    width: 80vw;
+  }
+}
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .card {
+    width: 70vw;
+
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {}
+
+
+@media only screen and (min-width: 1201px) {}

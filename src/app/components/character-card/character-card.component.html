@@ -1,5 +1,5 @@
   <li *ngIf="character !== null">
-    <a href="" class="card" >
+    <a routerLink="/character/{{ character.id}}" class="card" >
       <img src="{{ character.image }}" class="card__image" alt="" />
       <div class="card__overlay"    [ngClass]="{'orange-bg':character.gender === 'Male', 'fuchsia-bg':character.gender === 'Female', 'blue-bg':character.gender === 'unknown'}">
         <div class="card__header" [ngClass]="{'orange-bg':character.gender === 'Male', 'fuchsia-bg':character.gender === 'Female', 'blue-bg':character.gender === 'unknown'}">

@@ -1,0 +1,17 @@
+<div class="bg-primary full-height full-width">
+  <div>
+    <app-top-bar></app-top-bar>
+  </div>
+  <div *ngIf="loading" class="loader">
+    <app-loader></app-loader>
+  </div>
+  <div class="site-content">
+    <div *ngIf="!loading" class="profile-container">
+      <div class="panel">
+        <div class="panel-content">
+          <app-profile-card [character]="character | async"></app-profile-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
